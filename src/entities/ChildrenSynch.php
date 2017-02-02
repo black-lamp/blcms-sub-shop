@@ -8,6 +8,7 @@
 namespace bl\cms\subshop\entities;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "sub_shop_children_synch".
@@ -28,6 +29,20 @@ class ChildrenSynch extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => TimestampBehavior::class,
+                'createdAtAttribute' => 'attemptedAt',
+                'updatedAtAttribute' => 'attemptedAt'
+            ]
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public static function tableName()
     {
         return '{{%sub_shop_children_synch}}';
@@ -39,8 +54,11 @@ class ChildrenSynch extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['logId', 'childId', 'attemptedAt'], 'required'],
-            [['logId', 'childId', 'success', 'attemptedAt'], 'integer'],
+            [['attemptedAt'], 'safe'],
+            [['logId', 'childId'], 'required'],
+            [['logId', 'childId'], 'integer'],
+            [['success'], 'boolean'],
+            [['success'], 'default', 'value' => false],
         ];
     }
 

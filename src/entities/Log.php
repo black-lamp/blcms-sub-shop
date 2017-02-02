@@ -8,6 +8,7 @@
 namespace bl\cms\subshop\entities;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "sub_shop_log".
@@ -28,6 +29,20 @@ class Log extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => TimestampBehavior::class,
+                'createdAtAttribute' => 'producedAt',
+                'updatedAtAttribute' => 'producedAt'
+            ]
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public static function tableName()
     {
         return '{{%sub_shop_log}}';
@@ -39,8 +54,9 @@ class Log extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['actionId', 'entityName', 'entityId', 'producedAt'], 'required'],
-            [['actionId', 'entityId', 'producedAt'], 'integer'],
+            [['producedAt'], 'safe'],
+            [['actionId', 'entityName', 'entityId'], 'required'],
+            [['actionId', 'entityId'], 'integer'],
             [['entityName'], 'string', 'max' => 255],
         ];
     }

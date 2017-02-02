@@ -30,8 +30,7 @@ class Logger extends Object
         $log = new Log([
             'actionId' => $action,
             'entityName' => $entityName,
-            'entityId' => $entityId,
-            'producedAt' => time()
+            'entityId' => $entityId
         ]);
 
         return $log->insert();

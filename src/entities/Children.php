@@ -8,6 +8,7 @@
 namespace bl\cms\subshop\entities;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "sub_shop_children".
@@ -26,6 +27,20 @@ class Children extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => TimestampBehavior::class,
+                'createdAtAttribute' => 'createdAt',
+                'updatedAtAttribute' => 'createdAt'
+            ]
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public static function tableName()
     {
         return '{{%sub_shop_children}}';
@@ -37,8 +52,9 @@ class Children extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['companyId', 'domainName', 'createdAt'], 'required'],
-            [['companyId', 'createdAt'], 'integer'],
+            [['createdAt'], 'safe'],
+            [['companyId', 'domainName'], 'required'],
+            [['companyId'], 'integer'],
             [['domainName'], 'string', 'max' => 255],
         ];
     }
