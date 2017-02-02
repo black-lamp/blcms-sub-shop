@@ -1,0 +1,5 @@
+# codeception
+codecept.phar
+
+# composer vendor dir
+/vendor
