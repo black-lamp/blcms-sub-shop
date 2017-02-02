@@ -13,3 +13,5 @@ require_once(VENDOR_DIR . implode(DIRECTORY_SEPARATOR, ['', 'yiisoft', 'yii2', '
 Yii::setAlias('@tests', __DIR__);
 Yii::setAlias('@vendor', VENDOR_DIR);
 Yii::setAlias('@data', __DIR__ . DIRECTORY_SEPARATOR . '_data');
+
+Yii::setAlias('@bl/cms/subshop', '@vendor/black-lamp/blcms-sub-shop/src');

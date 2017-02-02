@@ -16,6 +16,7 @@ modules:
         Yii2:
           cleanup: false
           configFile: 'tests/_config/app.php'
+          part: ORM
         Db:
           dsn: 'sqlite:tests/_output/test.db'
           user: ''

@@ -15,6 +15,11 @@ use Yii;
  */
 class LogActions extends \yii\db\ActiveRecord
 {
+    const ACTION_CREATE = 1;
+    const ACTION_EDIT   = 2;
+    const ACTION_REMOVE = 3;
+
+
     /**
      * @inheritdoc
      */
