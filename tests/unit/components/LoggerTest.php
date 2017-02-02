@@ -1,4 +1,10 @@
 <?php
+/**
+ * @link https://github.com/black-lamp/blcms-sub-shop
+ * @copyright Copyright (c) 2017 Vladimir Kuprienko
+ * @license BSD 3-Clause License
+ */
+
 namespace tests\unit\components;
 
 use Yii;
