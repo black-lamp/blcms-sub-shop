@@ -5,16 +5,14 @@
  * @license BSD 3-Clause License
  */
 
-namespace bl\cms\subshop\events;
-
-use bl\cms\subshop\base\ShopEvent;
+namespace bl\cms\subshop\base;
 
 /**
- * Create event definition class
+ * Interface for class where triggered shop events
  *
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  */
-class CreateEvent extends ShopEvent
+interface ShopEventInterface
 {
-    const EVENT_SUB_SHOP_CREATE = 'subShopCreate';
+
 }

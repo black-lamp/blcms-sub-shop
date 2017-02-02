@@ -14,7 +14,7 @@ use yii\base\Event;
  *
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  */
-abstract class ShopEvent extends Event
+abstract class ShopEvent extends Event implements ShopEventInterface
 {
     /**
      * @var string Entity name where triggered the event

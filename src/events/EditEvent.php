@@ -16,5 +16,5 @@ use bl\cms\subshop\base\ShopEvent;
  */
 class EditEvent extends ShopEvent
 {
-
+    const EVENT_SUB_SHOP_EDIT = 'subShopEdit';
 }

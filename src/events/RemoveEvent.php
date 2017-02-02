@@ -16,5 +16,5 @@ use bl\cms\subshop\base\ShopEvent;
  */
 class RemoveEvent extends ShopEvent
 {
-
+    const EVENT_SUB_SHOP_REMOVE = 'subShopRemove';
 }
